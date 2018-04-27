@@ -28,7 +28,7 @@ class LaracurlServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['laracurl'] = $this->app->share(function($app){
+		$this->app->singleton('laracurl', function($app){
 			return new Laracurl;
 		});
 		$this->app->booting(function(){
